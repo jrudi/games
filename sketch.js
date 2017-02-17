@@ -21,7 +21,6 @@ function setup() {
 	mat.build();
 	mat.createNewBlock();
 	para = createP();
-	strokeWeight(5);
 }
 
 function draw() {
@@ -45,6 +44,8 @@ function draw() {
 			var xpos = j*width/gameSize + width/(gameSize*4);
 			var ypos = i*height/gameSize + 3*height/(gameSize*4);
 			fill(0);
+			strokeWeight(1);
+
 			text(mat.mat[i][j],xpos,ypos);
 		}
 		
@@ -52,6 +53,8 @@ function draw() {
 	
 
 	stroke(255);
+	strokeWeight(5);
+
 	for(var i=0;i<gameSize;i++){
 		line(height/gameSize*i, 0,height/gameSize*i, width);
 		line(0, width/gameSize*i,height, width/gameSize*i);
