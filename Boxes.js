@@ -4,6 +4,7 @@ function Boxes(gameSize){
 	this.gameSize = gameSize;
 	this.mat = new Array(gameSize);
 	this.boardFull=false;
+	
 
 	this.build = function(){
 		for (var i = 0 ; i < this.mat.length ; i++) {
