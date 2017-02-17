@@ -4,6 +4,7 @@ function Boxes(gameSize){
 	this.gameSize = gameSize;
 	this.mat = new Array(gameSize);
 	this.boardFull=false;
+	this.running = true;
 	
 
 	this.build = function(){
@@ -13,6 +14,26 @@ function Boxes(gameSize){
 				this.mat[i][j]=0;	
 			} 
 		}
+	}
+
+	this.detectEnd = function(){
+		for (var i = 0; i < this.mat.length-1; i++) {
+			for (var j = 0; j < this.mat[i].length-1; j++) {
+				if(this.mat[i][j]==this.mat[i][j+1]||this.mat[i][j]==this.mat[i+1][j]){
+					return false;
+				}
+			}
+		}
+		var ll = this.mat.length-1
+		for (var i = 0; i < this.mat[ll].length-1; i++) {
+			if(this.mat[ll][i]== this.mat[ll][i+1]){
+				return false;
+			}
+			if(this.mat[i][ll]== this.mat[i+1][ll]){
+				return false;
+			}
+		}
+		return true;
 	}
 
 	this.show = function(){
@@ -123,9 +144,14 @@ function Boxes(gameSize){
 					break;
 				}
 			}
+		}else if(this.detectEnd()){
+			this.endgame();
 		}
 	}
 
+	this.endgame = function(){
+		this.running = false;
+	}
 
 	this.getRandomInt = function(min, max) {
   		min = Math.ceil(min);

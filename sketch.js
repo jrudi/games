@@ -60,23 +60,36 @@ function draw() {
 		line(0, width/gameSize*i,height, width/gameSize*i);
 
 	}
-	para.html(mat.score);
+	if(!mat.running){
+		para.html('Your final Score is ' + mat.score + '. Press Enter to Restart!');
+	}else{
+		para.html(mat.score);
+
+	}
 }
 
 
 
 function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    mat.moveLeft();
-    mat.createNewBlock();
-  } else if (keyCode === RIGHT_ARROW) {
-  	mat.moveRight();
-  	mat.createNewBlock();
-  }else if (keyCode === UP_ARROW) {
-  	mat.moveUp();
-  	mat.createNewBlock();
-  }else if (keyCode === DOWN_ARROW) {
-  	mat.moveDown();
-  	mat.createNewBlock();
-  }
+	if(mat.running){
+		if (keyCode === LEFT_ARROW) {
+			mat.moveLeft();
+			mat.createNewBlock();
+		} else if (keyCode === RIGHT_ARROW) {
+			mat.moveRight();
+			mat.createNewBlock();
+		}else if (keyCode === UP_ARROW) {
+			mat.moveUp();
+			mat.createNewBlock();
+		}else if (keyCode === DOWN_ARROW) {
+			mat.moveDown();
+			mat.createNewBlock();
+		}
+	}else{
+		if(keyCode === ENTER){
+			mat.build();
+			mat.score = 0;
+			mat.running = true;
+}
+	}
 }
