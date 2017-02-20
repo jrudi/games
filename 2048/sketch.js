@@ -21,6 +21,8 @@ function setup() {
 	mat.build();
 	mat.createNewBlock();
 	para = createP();
+	createP().html("<a href='index.html'>Go Back</a>");
+
 }
 
 function draw() {
