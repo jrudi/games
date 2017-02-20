@@ -9,8 +9,7 @@ function Ball(p,d){
 			this.vec.x*=-1;
 		}else if(this.pos.y<0){
 			this.vec.y*=-1;
-		}else if(this.pos.y>height){
-			console.log("lel");
+		}else if(this.pos.y>height-boxSize){
 			this.active = false;
 		}
 	}	

@@ -9,7 +9,6 @@ function Box(n,c,r){
 
 	this.contact = function(ball){
 		this.num--;
-		console.log(this.row, this.num);
 		if(this.num==0){
 			this.active = false;
 		}
@@ -28,7 +27,6 @@ function Box(n,c,r){
 				ball.vec.y*=-1;
 				this.contact();
 				ball.travel();
-				console.log(ballY,bottomY,topY);
 				return true;
 			}
 		}else if(Math.abs(ballX-leftX)<lineDist||Math.abs(rightX-ballX)<lineDist){
